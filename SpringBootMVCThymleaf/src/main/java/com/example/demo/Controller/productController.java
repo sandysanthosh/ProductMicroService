@@ -18,6 +18,7 @@ import com.example.demo.model.product;
 import com.example.demo.repository.productRespository;
 
 @RestController
+@RequestMapping("/flipkart")
 public class productController {
 	
 	@Autowired
@@ -41,10 +42,14 @@ public class productController {
 		return "User id";
 	}
 
-	/*
-	 * @DeleteMapping("/deleteUser/{id}") public String deleteUser(@PathVariable int
-	 * id) { repo.deleteById(id); return "User id"; }
-	 */
+
+	 @DeleteMapping("/deleteUser/{id}") 
+     public String deleteUser(@PathVariable String id) 
+	 { 
+		 repo.deleteById(id); 
+	    return "User id";
+	 }
+	 
 	@RequestMapping("/create")
 	public String create(Model model)
 	{
